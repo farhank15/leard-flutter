@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:leard_flutter/pages/home/home_page.dart';
+import 'routes/guest_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(
-          title: 'Flutter Demo: Gabungan'), // Pastikan ada 'const' di sini
+      initialRoute: AppRoutes.root,
+      routes: AppRoutes.routes,
     );
   }
 }
