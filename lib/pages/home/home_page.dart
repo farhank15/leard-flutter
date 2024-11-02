@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'sections/welcome_section.dart';
 import 'sections/core_concepts_section.dart';
 import 'sections/layout_examples_section.dart';
-import 'sections/sign_in_section.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key, required this.title});
@@ -36,7 +35,6 @@ class MyHomePage extends StatelessWidget {
               SizedBox(height: 32),
               LayoutExamplesSection(),
               SizedBox(height: 32),
-              SignInSection(),
             ],
           ),
         ),

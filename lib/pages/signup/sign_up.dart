@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import '../../routes/guest_routes.dart';
-import './validators/signin_validators.dart';
+import './validators/signup_validators.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({super.key});
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+    final TextEditingController passwordController = TextEditingController();
 
     return Scaffold(
       body: Padding(
@@ -21,13 +22,12 @@ class SignInPage extends StatelessWidget {
                 children: [
                   // Logo Placeholder
                   const Image(
-                    image: AssetImage(
-                        "images/logo.png"), // Make sure the logo is in this path
+                    image: AssetImage("images/logo.png"),
                     height: 100,
                   ),
                   const SizedBox(height: 20),
                   const Text(
-                    'Masuk',
+                    'Daftar',
                     style: TextStyle(
                       fontSize: 28,
                       color: Colors.black,
@@ -38,31 +38,34 @@ class SignInPage extends StatelessWidget {
                   _buildTextField(
                     'Masukan Email',
                     false,
-                    (value) => Validators.validateEmail(value),
+                    (value) => SignUpValidators.validateEmail(value),
                   ),
                   const SizedBox(height: 16),
                   _buildTextField(
                     'Masukan Password',
                     true,
-                    (value) => Validators.validatePassword(value),
+                    (value) => SignUpValidators.validatePassword(value),
+                    controller: passwordController,
+                  ),
+                  const SizedBox(height: 16),
+                  _buildTextField(
+                    'Masukan kembali Password',
+                    true,
+                    (value) => SignUpValidators.validateConfirmPassword(
+                        value, passwordController.text),
                   ),
                   const SizedBox(height: 16),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TextButton(
-                        onPressed: () =>
-                            GuestRoutes.navigateToRegister(context),
-                        child: const Text(
-                          'Daftar',
-                          style: TextStyle(color: Colors.blue),
-                        ),
+                      const Text(
+                        'Sudah memiliki akun ?',
+                        style: TextStyle(color: Colors.black),
                       ),
                       TextButton(
-                        onPressed: () =>
-                            GuestRoutes.navigateToForgotPassword(context),
+                        onPressed: () => GuestRoutes.navigateToSignIn(context),
                         child: const Text(
-                          'Lupa password?',
+                          'Masuk',
                           style: TextStyle(color: Colors.blue),
                         ),
                       ),
@@ -83,12 +86,12 @@ class SignInPage extends StatelessWidget {
                     ),
                     onPressed: () {
                       if (formKey.currentState?.validate() ?? false) {
-                        // Navigasi ke halaman home jika validasi berhasil
+                        // Perform signup action if validation succeeds
                         GuestRoutes.navigateToHome(context);
                       }
                     },
                     child: const Text(
-                      'Masuk',
+                      'Daftar',
                       style: TextStyle(fontSize: 18),
                     ),
                   ),
@@ -104,9 +107,11 @@ class SignInPage extends StatelessWidget {
   Widget _buildTextField(
     String label,
     bool isPassword,
-    String? Function(String?)? validator,
-  ) {
+    String? Function(String?)? validator, {
+    TextEditingController? controller,
+  }) {
     return TextFormField(
+      controller: controller,
       obscureText: isPassword,
       decoration: InputDecoration(
         labelText: label,
