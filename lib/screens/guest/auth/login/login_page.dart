@@ -36,8 +36,8 @@ class _LoginPageState extends State<LoginPage> {
         _passwordController.text.trim(),
       );
 
-      if (mounted) {
-        Navigator.pushReplacementNamed(context, '/');
+      if (mounted && authProvider.isAuthenticated) {
+        Navigator.pushReplacementNamed(context, '/home');
       }
     } catch (e) {
       if (mounted) {
@@ -63,7 +63,6 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Colors.white,
       body: Center(
         child: SingleChildScrollView(
-          // This allows the page to scroll when the keyboard is shown
           padding: const EdgeInsets.all(16.0),
           child: ConstrainedBox(
             constraints: BoxConstraints(maxHeight: screenHeight * 0.9),

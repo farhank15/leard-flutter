@@ -10,13 +10,15 @@ class AppRouter {
     final authProvider = Provider.of<AuthProvider>(context, listen: false);
 
     if (authProvider.isAuthenticated) {
-      switch (authProvider.userRole) {
+      // Jika pengguna sudah login, arahkan ke CustomerRoute
+      switch (authProvider.currentUser?.role) {
         case 'customer':
           return CustomerRoute.generateRoute(settings);
         default:
           return GuestRoute.generateRoute(settings) ?? _errorRoute();
       }
     } else {
+      // Jika pengguna belum login, arahkan ke halaman login
       if (settings.name == '/') {
         return GuestRoute.generateRoute(const RouteSettings(name: '/login')) ??
             _errorRoute();

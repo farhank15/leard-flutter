@@ -17,10 +17,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  shared_preferences: ^2.0.13
 
 flutter:
   assets:
-    - web/assets/data/mock_data.json
+    - web/assets/data/
     - assets/images/logo.png
   uses-material-design: true
 

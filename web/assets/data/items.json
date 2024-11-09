@@ -1,0 +1,172 @@
+[
+  {
+    "id": 1,
+    "artist": "Artist 1",
+    "album": "Album 1",
+    "price": "IDR 120,000",
+    "image": "https://picsum.photos/200/300?1",
+    "likes": 150,
+    "songs": [
+      {
+        "title": "Song 1 - Track 1",
+        "songLikes": 120,
+        "playCount": 300
+      },
+      {
+        "title": "Song 1 - Track 2",
+        "songLikes": 80,
+        "playCount": 250
+      },
+      {
+        "title": "Song 1 - Track 3",
+        "songLikes": 100,
+        "playCount": 280
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "artist": "Artist 2",
+    "album": "Album 2",
+    "price": "IDR 150,000",
+    "image": "https://picsum.photos/200/300?2",
+    "likes": 200,
+    "songs": [
+      {
+        "title": "Song 2 - Track 1",
+        "songLikes": 150,
+        "playCount": 320
+      },
+      {
+        "title": "Song 2 - Track 2",
+        "songLikes": 90,
+        "playCount": 290
+      },
+      {
+        "title": "Song 2 - Track 3",
+        "songLikes": 130,
+        "playCount": 310
+      },
+      {
+        "title": "Song 2 - Track 4",
+        "songLikes": 110,
+        "playCount": 270
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "artist": "Artist 3",
+    "album": "Album 3",
+    "price": "IDR 180,000",
+    "image": "https://picsum.photos/200/300?3",
+    "likes": 300,
+    "songs": [
+      {
+        "title": "Song 3 - Track 1",
+        "songLikes": 200,
+        "playCount": 400
+      },
+      {
+        "title": "Song 3 - Track 2",
+        "songLikes": 180,
+        "playCount": 390
+      },
+      {
+        "title": "Song 3 - Track 3",
+        "songLikes": 210,
+        "playCount": 420
+      },
+      {
+        "title": "Song 3 - Track 4",
+        "songLikes": 170,
+        "playCount": 380
+      },
+      {
+        "title": "Song 3 - Track 5",
+        "songLikes": 190,
+        "playCount": 410
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "artist": "Artist 4",
+    "album": "Album 4",
+    "price": "IDR 140,000",
+    "image": "https://picsum.photos/200/300?4",
+    "likes": 120,
+    "songs": [
+      {
+        "title": "Song 4 - Track 1",
+        "songLikes": 100,
+        "playCount": 260
+      },
+      {
+        "title": "Song 4 - Track 2",
+        "songLikes": 90,
+        "playCount": 240
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "artist": "Artist 5",
+    "album": "Album 5",
+    "price": "IDR 160,000",
+    "image": "https://picsum.photos/200/300?5",
+    "likes": 220,
+    "songs": [
+      {
+        "title": "Song 5 - Track 1",
+        "songLikes": 130,
+        "playCount": 290
+      },
+      {
+        "title": "Song 5 - Track 2",
+        "songLikes": 110,
+        "playCount": 270
+      },
+      {
+        "title": "Song 5 - Track 3",
+        "songLikes": 120,
+        "playCount": 300
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "artist": "Artist 6",
+    "album": "Album 6",
+    "price": "IDR 130,000",
+    "image": "https://picsum.photos/200/300?6",
+    "likes": 180,
+    "songs": [
+      {
+        "title": "Song 6 - Track 1",
+        "songLikes": 140,
+        "playCount": 310
+      },
+      {
+        "title": "Song 6 - Track 2",
+        "songLikes": 130,
+        "playCount": 300
+      },
+      {
+        "title": "Song 6 - Track 3",
+        "songLikes": 120,
+        "playCount": 280
+      },
+      {
+        "title": "Song 6 - Track 4",
+        "songLikes": 110,
+        "playCount": 270
+      },
+      {
+        "title": "Song 6 - Track 5",
+        "songLikes": 100,
+        "playCount": 260
+      }
+    ]
+  }
+]
