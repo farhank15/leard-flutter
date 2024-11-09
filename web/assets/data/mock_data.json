@@ -1,0 +1,12 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "Jane Smith",
+        "email": "nana@ku.com",
+        "password": "password123",
+        "role": "customer"
+      }
+    ]
+  }
+  

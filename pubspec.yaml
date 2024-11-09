@@ -1,0 +1,32 @@
+name: learn_flutter
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.0.5
+  flutter_lints: ^4.0.0
+  flutter_native_splash: ^2.4.2
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  assets:
+    - web/assets/data/mock_data.json
+    - assets/images/logo.png
+  uses-material-design: true
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/logo.png
+  fullscreen: true
+  image_width: 600
+  brand_center: true
