@@ -22,7 +22,7 @@ class CustomBottomNavigation extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
-          label: 'Akun',
+          label: 'Settings',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.logout),

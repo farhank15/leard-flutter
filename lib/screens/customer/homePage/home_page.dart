@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import './ui/header.dart';
 import './ui/grid_screen.dart';
 import './ui/popular_screen.dart';
+import 'package:learn_flutter/core/providers/auth_provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context);
+    final userName = authProvider.currentUser?.name ?? "Guest";
+    final email = authProvider.currentUser?.email ?? "guest@example.com";
+
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(80.0),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(80.0),
         child: Header(
-          userName: "Guest", // Ganti dengan nama pengguna yang sesuai
+          userName: userName,
+          email: email,
         ),
       ),
       body: CustomScrollView(
         slivers: [
-          // Bagian Album
           const SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.all(8.0),
@@ -28,12 +34,14 @@ class HomePage extends StatelessWidget {
             ),
           ),
           const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 250.0,
-              child: GridScreen(),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0),
+              child: SizedBox(
+                height: 250.0,
+                child: GridScreen(),
+              ),
             ),
           ),
-          // Sticky Header untuk Popular Songs
           const SliverAppBar(
             pinned: true,
             automaticallyImplyLeading: false,
@@ -51,11 +59,17 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          // Menampilkan PopularItemsScreen tanpa const
           SliverToBoxAdapter(
-            child: PopularItemsScreen(),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: PopularItemsScreen(),
+            ),
           ),
         ],
+      ),
+      drawer: CustomDrawer(
+        userName: userName,
+        email: email,
       ),
     );
   }

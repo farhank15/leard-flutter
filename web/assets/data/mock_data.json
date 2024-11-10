@@ -5,6 +5,7 @@
         "name": "Jane Smith",
         "email": "nana@ku.com",
         "password": "password123",
+        "profil_pict": "https://avatar.iran.liara.run/public",
         "role": "customer"
       }
     ]

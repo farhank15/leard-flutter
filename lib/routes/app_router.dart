@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../core/providers/auth_provider.dart';
+import 'package:learn_flutter/screens/customer/customer_scree.dart';
 import 'guest_route.dart';
-import 'customer_route.dart';
 
 class AppRouter {
   static Route<dynamic> generateRoute(
@@ -10,20 +10,19 @@ class AppRouter {
     final authProvider = Provider.of<AuthProvider>(context, listen: false);
 
     if (authProvider.isAuthenticated) {
-      // Jika pengguna sudah login, arahkan ke CustomerRoute
-      switch (authProvider.currentUser?.role) {
-        case 'customer':
-          return CustomerRoute.generateRoute(settings);
-        default:
-          return GuestRoute.generateRoute(settings) ?? _errorRoute();
-      }
+      // Use CustomerScreen as the main container for authenticated pages
+      return MaterialPageRoute(builder: (_) => CustomerScreen());
     } else {
-      // Jika pengguna belum login, arahkan ke halaman login
-      if (settings.name == '/') {
+      // For unauthenticated users, use GuestRoute for authentication pages
+      if (settings.name == '/login' ||
+          settings.name == '/register' ||
+          settings.name == '/forgot-password') {
+        return GuestRoute.generateRoute(settings) ?? _errorRoute();
+      } else {
+        // Redirect any unauthenticated attempt to login
         return GuestRoute.generateRoute(const RouteSettings(name: '/login')) ??
             _errorRoute();
       }
-      return GuestRoute.generateRoute(settings) ?? _errorRoute();
     }
   }
 
@@ -32,7 +31,7 @@ class AppRouter {
       builder: (_) => Scaffold(
         appBar: AppBar(title: const Text('Error')),
         body: const Center(
-          child: Text('Route tidak ditemukan!'),
+          child: Text('Route not found!'),
         ),
       ),
     );

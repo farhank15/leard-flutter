@@ -48,8 +48,8 @@ class AuthProvider extends ChangeNotifier {
     _currentUser = null;
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.remove('jwt_token');
+    await prefs.remove('jwt_token'); // Clear the JWT token
 
-    notifyListeners(); // Menginformasikan perubahan status
+    notifyListeners(); // Notify listeners about the authentication change
   }
 }
